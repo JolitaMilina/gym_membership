@@ -1,0 +1,20 @@
+###   create a single user in my database
+POST http://localhost:5001/api/clients
+content-type: application/json
+
+{
+  "name": "Jolita Milina",
+  "email": "jolita@gmail.com",
+  "startDate":"2023-02-23",
+  "endDate":"2024-02-23"
+  
+}
+    
+
+
+
+###  get all users from my database
+GET http://localhost:5001/api/clients
+
+
+
