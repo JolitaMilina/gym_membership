@@ -3,6 +3,7 @@ import "./App.css";
 import Form from "./components/Form/Form";
 
 function App() {
+  document.title = "Gym Membership App";
   return (
     <div className="container p-4">
       <h1 className="mb-3"> Gym Membership Form </h1>
