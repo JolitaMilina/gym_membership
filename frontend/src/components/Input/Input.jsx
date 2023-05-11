@@ -2,7 +2,6 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const Input = (props) => {
   const { text, value, placeholder, icon, type, name, onChange } = props;
