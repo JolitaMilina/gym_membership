@@ -27,7 +27,8 @@ const Form = () => {
   }, []);
 
   const fetchData = () => {
-    // Perform API request or any other data fetching logic here
+    // LOGIC FOR FETCHING
+
     fetch(`${process.env.REACT_APP_API_ENDPOINT}/clients`)
       .then((response) => response.json())
       .then((data) => {
@@ -59,7 +60,6 @@ const Form = () => {
       "Do you really want to delete this client?"
     );
     if (confirmDelete) {
-      // Perform API request or any other data deletion logic here
       fetch(`${process.env.REACT_APP_API_ENDPOINT}/clients/${id}`, {
         method: "DELETE",
       })
@@ -96,7 +96,6 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform any necessary form validation or data processing here
     fetch(`${process.env.REACT_APP_API_ENDPOINT}/clients`, {
       method: "POST",
       headers: {
@@ -107,8 +106,8 @@ const Form = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Form submitted!", data);
-        // Reset the form
 
+        // Reset the form
         setSubmittedData((prevData) => [...prevData, data]);
         setFormData({
           name: "",
@@ -127,7 +126,6 @@ const Form = () => {
     setBgForm("");
     e.preventDefault();
 
-    // Perform any necessary form validation or data processing here
     fetch(`${process.env.REACT_APP_API_ENDPOINT}/clients/${idToUpdate}`, {
       method: "PUT",
       headers: {
@@ -164,7 +162,7 @@ const Form = () => {
 
   return (
     <>
-      <form className={"mb-5 p-5 rounded border" + " " + bgForm}>
+      <form className={`mb-5 p-5 rounded border ${bgForm}`}>
         <Input
           text="Name and Surname"
           name="name"
@@ -222,21 +220,19 @@ const Form = () => {
                 <td>{formatDateString(item.membershipends)}</td>
                 <td className="text-end">
                   <span className="btn-group">
-                    <a
-                      href="#"
+                    <button
                       className="btn btn-primary"
                       onClick={() => handleEdit(item)}
                     >
                       Edit
-                    </a>
+                    </button>
 
-                    <a
-                      href="#"
+                    <button
                       className="btn btn-danger"
                       onClick={() => handleDelete(item._id)}
                     >
                       Del
-                    </a>
+                    </button>
                   </span>
                 </td>
               </tr>
